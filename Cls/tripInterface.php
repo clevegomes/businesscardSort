@@ -6,7 +6,7 @@
  * Time: 11:22 AM
  */
 
-namespace Cls;
+namespace  Cls;
 /**
  * Interface tripInterface defines all the methods that need to exist in every Type of Card Class
  */

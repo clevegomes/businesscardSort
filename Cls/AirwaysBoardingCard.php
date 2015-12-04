@@ -6,7 +6,7 @@
  * Time: 5:42 PM
  */
 
-namespace Cls;
+namespace  Cls;
 
 
 class AirwaysBoardingCard extends tripAbstract {
@@ -19,6 +19,28 @@ class AirwaysBoardingCard extends tripAbstract {
 	private $boardingCardDetails = "";
 	private $firstname;
 	private $lastname;
+    private $details;
+    private $aiwaysDetails;
+
+    /**
+     * @param mixed $aiwaysDetails   set the details about the airways
+     */
+    public function setAiwaysDetails($aiwaysDetails)
+    {
+        $this->aiwaysDetails = $aiwaysDetails;
+    }
+
+    /**
+     * @param mixed $details set the details about the flight
+     */
+    public function setDetails($details)
+    {
+        $this->details = $details;
+    }
+
+
+
+
 
 	/**
 	 * Set the passengers first name
@@ -71,15 +93,21 @@ class AirwaysBoardingCard extends tripAbstract {
 	 */
 	public function getCardDetails()
 	{
-		$this->boardingCardDetails = "British Airways \n";
+        $this->boardingCardDetails = " ====================================================================\n";
+		$this->boardingCardDetails .= "**$this->aiwaysDetails** \n";
+        $this->boardingCardDetails.=  "Language:".$this->getSelLanguage()."\n";
 		$this->boardingCardDetails.= "Passenger Details:".$this->firstname." ".$this->lastname."\n";
-		$this->boardingCardDetails.= "From".$this->fromLocation."\n";
-		$this->boardingCardDetails.= "To".$this->toLocation."\n";
-		$this->boardingCardDetails.= "Gate No:".$this->gate;
-		$this->boardingCardDetails.= "Gate closing time:".$this->gateclosingTime;
-		$this->boardingCardDetails.= "Seat No:".$this->seat;
+		$this->boardingCardDetails.= "From City: ".$this->getDepartureLocationCity()."\n";
+		$this->boardingCardDetails.= "To City: ".$this->getArrivalLocationCity()."\n";
+		$this->boardingCardDetails.= "Gate No:".$this->gate."\n";
+		$this->boardingCardDetails.= "Gate closing time:".$this->gateclosingTime."\n";
+		$this->boardingCardDetails.= "Seat No:".$this->seat."\n";
+		$this->boardingCardDetails.= "Description:".$this->details."\n";
+        $this->boardingCardDetails .= " ====================================================================\n";
 
-		return $this->boardingCardDetails;
+
+
+        return $this->boardingCardDetails;
 	}
 
 

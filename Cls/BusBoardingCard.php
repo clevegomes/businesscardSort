@@ -6,7 +6,7 @@
  * Time: 3:30 PM
  */
 
-namespace Cls;
+namespace  Cls;
 
 
 class BusBoardingCard extends tripAbstract {
@@ -14,21 +14,51 @@ class BusBoardingCard extends tripAbstract {
 
 	private $boardingCardDetails = "";
 	private $passengerName;
+    private $description;
 
-	private $fromLocation;
-	private $toLocation;
+
+
+
+    /**
+     * @param mixed $description  Set the description for the Bus service
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed  Returns the description for the bus service
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 	private $bookingNo;
+    private $busServiceName;
 
-/*
+    /**
+     * @param mixed $busServiceName Set the name of the bus service.
+     */
+    public function setBusServiceName($busServiceName)
+    {
+        $this->busServiceName = $busServiceName;
+    }
+
+/**
  * Get the card details that is to be printed
  */
 	public function getCardDetails()
 	{
-		$this->boardingCardDetails = "Malaga Bus Service \n";
-		$this->boardingCardDetails.= "Name of Passenger:".$this->passengerName."\n";
-		$this->boardingCardDetails.= "From".$this->fromLocation."\n";
-		$this->boardingCardDetails.= "To".$this->toLocation."\n";
-		$this->boardingCardDetails.= "Booking No:".$this->bookingNo;
+		$this->boardingCardDetails = " ======================================================================= \n";
+		$this->boardingCardDetails .= "**".$this->busServiceName." Bus Service ** \n";
+        $this->boardingCardDetails.= "Language :".$this->getSelLanguage()."\n";
+		$this->boardingCardDetails.= "Name of Passenger: ".$this->passengerName."\n";
+		$this->boardingCardDetails.= "From City: ".$this->getDepartureLocationCity()."\n";
+		$this->boardingCardDetails.= "To City: ".$this->getArrivalLocationCity()."\n";
+		$this->boardingCardDetails.= "Booking No: ".$this->bookingNo."\n";
+		$this->boardingCardDetails.= "Description: ".$this->getDescription()."\n";
+        $this->boardingCardDetails .= " ======================================================================= \n";
 
 		return $this->boardingCardDetails;
 	}

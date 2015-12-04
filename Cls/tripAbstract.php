@@ -25,24 +25,43 @@ Abstract class  tripAbstract implements tripInterface{
 	 * Location to id mapping in Engish
 	 * @var array
 	 */
-	private $locationMapEN = ['dubai'=>1,'abu dhabi'=>2,'sharjah'=>3,'london'=>4,'manchester'=>5,'liverpool'=>6,
-							'Paris'=>7,'Lyon'=>8,'Toulouse'=>9,'Marseille'=>10];
+	public  $locationMapEN = ['dubai'=>1,'abu dhabi'=>2,'sharjah'=>3,'london'=>4,'manchester'=>5,'liverpool'=>6,
+							'paris'=>7,'lyon'=>8,'toulouse'=>9,'marseille'=>10];
 
 
 	/*
 	 * Location to id mapping in French
 	 * @var array
 	 */
-	private $locationMapFR = ['dubai'=>1,'abu dhabi'=>2,'sharjah'=>3,'londres'=>4,'manchester'=>5,'liverpool'=>6,
-		'Paris'=>7,'Lyon'=>8,'Toulouse'=>9,'Marseille'=>10];
+	public  $locationMapFR = ['dubai'=>1,'abu dhabi'=>2,'sharjah'=>3,'londres'=>4,'manchester'=>5,'liverpool'=>6,
+		'paris'=>7,'lyon'=>8,'toulouse'=>9,'marseille'=>10];
 
 
 	/*
-	 * Location to id mapping in Arabic
+	 * Location to id mapping in Finnish
 	 * @var array
 	 */
-	private $locationMapAR = ['دبي'=>1,'أبوظبي'=>2,'الشارقة'=>3,'لندن'=>4,'مانشستر'=>5,'ليفربول'=>6,
-		'باريس'=>7,'ليون'=>8,'تولوز'=>9,'مرسيليا'=>10];
+    public  $locationMapFI = ['dubai'=>1,'abu dhabi'=>2,'sharjah'=>3,'lontoo'=>4,'manchester'=>5,'liverpool'=>6,
+        'pariisi'=>7,'lyon'=>8,'toulouse'=>9,'marseille'=>10];
+
+
+    /**
+     * List of all available languages
+     * @var array
+     */
+    public  $languageMap = ['fi'=>'Finnish','fr'=>'French','en'=>'English'];
+
+
+    /**
+     * Selected language for the card
+     * @var mixed
+     *
+     *
+     */
+    public $selLanguage;
+
+
+
 
 	/**
 	 * Arrival location id holder
@@ -63,6 +82,22 @@ Abstract class  tripAbstract implements tripInterface{
 	 * @var int
 	 */
 	private $departureLocationId;
+
+    /**
+     * @return String   get the City of departure
+     */
+    public function getArrivalLocationCity()
+    {
+        return $this->arrivalLocationCity;
+    }
+
+    /**
+     * @return String get the City of arrival
+     */
+    public function getDepartureLocationCity()
+    {
+        return $this->departureLocationCity;
+    }
 
 
 	/**
@@ -85,6 +120,7 @@ Abstract class  tripAbstract implements tripInterface{
 	public function setArrivalLocation($location,$lg)
 	{
 		$lg = strtoupper($lg);
+        $location = strtolower($location);
 		try{
 			if(!isset($this->{"locationMap$lg"}))
 				throw new \Exception(1);
@@ -94,7 +130,7 @@ Abstract class  tripAbstract implements tripInterface{
 
 			$this->arrivalLocationId = $this->{"locationMap$lg"}[$location];
 			$this->arrivalLocationCity = $location;
-
+            $this->selLanguage = strtolower($lg);
 			return 0;
 
 
@@ -107,6 +143,14 @@ Abstract class  tripAbstract implements tripInterface{
 
 	}
 
+    /**
+     * @return mixed   get the language for card
+     */
+    public function getSelLanguage()
+    {
+        return     $this->languageMap[$this->selLanguage];
+    }
+
 	/**
 	 * @param string $location  Name of the Departure location (city)
 	 * @param string $lg    Code of the language the location is in
@@ -115,6 +159,7 @@ Abstract class  tripAbstract implements tripInterface{
 	public function setDepartureLocation($location,$lg)
 	{
 		$lg = strtoupper($lg);
+        $location=strtolower($location);
 
 
 		try{
@@ -126,8 +171,10 @@ Abstract class  tripAbstract implements tripInterface{
 
 			$this->departureLocationId = $this->{"locationMap$lg"}[$location];
 			$this->departureLocationCity = $location;
+            $this->selLanguage = strtolower($lg);
 
-			return 0;
+
+            return 0;
 
 
 		}
@@ -144,7 +191,7 @@ Abstract class  tripAbstract implements tripInterface{
 	 */
 	 public function getArrivalId()
 	{
-		return $this->arrivalLocation;
+		return $this->arrivalLocationId;
 	}
 
 
@@ -154,6 +201,6 @@ Abstract class  tripAbstract implements tripInterface{
 	 */
 	public function getDepartureId()
 	{
-		return $this->departureLocation;
+		return $this->departureLocationId;
 	}
 }
