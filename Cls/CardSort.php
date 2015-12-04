@@ -274,6 +274,8 @@ class CardSort {
 
     /**
      * This general sort is a modification of a bubble sort. Here every next sorted element tends to bubble to the top.
+     * Here the best case is the Boarding cards get sorted in the first iteration.
+     * Worst case boarding cards get sorted in n (n-1) =n2 iterations.
      * Best->n,Avg->n2,Worst->n2
      * @param tripAbstract $unsortedArray . This is an unsorted list of Boarding cards
      * @return tripAbstract array . Returns a sorted list of boarding cards
@@ -290,15 +292,7 @@ class CardSort {
             $ignoreList = [];
             $sizeOfsortedArry= sizeof($unsortedArray);
 
-            // New sorted list will be in this array
-            $newSortedArry = [];
 
-            //Each sorted element
-//            for($i=0;$i<$sizeOfsortedArry;$i++)
-//            {
-//                //Skipping if in the ignore list
-//                if(!in_array($i,$ignoreList))
-//                {
                     $i=0;
                     //Getting the first and last element in the current list
                     $lastOfi =$firstOfi = $unsortedArray[$i];
@@ -358,8 +352,7 @@ class CardSort {
 
                     $newSortedArry = $currentSortArry;
 
-                //}
-            //}
+
 
             return $newSortedArry;
         }
