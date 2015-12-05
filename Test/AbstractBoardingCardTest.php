@@ -2,13 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: Cleve
- * Date: 12/3/15
- * Time: 12:38 AM
  */
 
-namespace Tst;
+namespace Test;
 
-
+/**
+ * This is abstract class that all test boarding classes must extend
+ * All Common tests are defined here
+ * Class AbstractBoardingCardTest
+ * @package Test
+ */
 Abstract  class AbstractBoardingCardTest  extends \PHPUnit_Framework_TestCase {
 
 
@@ -72,4 +75,6 @@ Abstract  class AbstractBoardingCardTest  extends \PHPUnit_Framework_TestCase {
     }
 
 
-} 
+}
+
+//</code>

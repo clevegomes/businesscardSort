@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Developer1
- * Date: 29/11/2015
- * Time: 11:22 AM
  */
 
 namespace  Cls;
@@ -13,9 +11,15 @@ namespace  Cls;
 interface tripInterface
 {
 	/**
-	 * Get the card details .It may be different for different types of cards. there fore needs to be defined in the Class
+	 * Get the card details .It may be different for different types of cards.
 	 */
 	public function getCardDetails();
+
+
+    /**
+     * Get the card details in few lines  .It may be different for different types of cards.
+     */
+    public function getShortCardDetails();
 
 	/**
 	 *
@@ -48,3 +52,5 @@ interface tripInterface
 
 
 }
+
+//</code>

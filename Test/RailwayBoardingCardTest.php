@@ -2,19 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: Cleve
- * Date: 12/3/15
- * Time: 12:36 AM
  */
 
-namespace Tst;
+namespace Test;
 use Cls\RailwayBoardingCard;
-use Tst\AbstractBoardingCardTest;
 
-
+/**
+ * This class is responsible in testing the RailwayBoardingCard class
+ * It extends AbstractBoardingCardTest
+ * Class RailwayBoardingCardTest
+ * @package Test
+ */
 class RailwayBoardingCardTest  extends AbstractBoardingCardTest {
 
 
-
+/*
+ * Creating the boarding card before the test can run
+ */
     public function  setUp(){
 
         $this->boardingCard = new RailwayBoardingCard();
@@ -32,6 +36,9 @@ class RailwayBoardingCardTest  extends AbstractBoardingCardTest {
 
     }
 
+    /**
+     * Cleaning up the boarding card after the test is complete
+     */
     public function tearDown()
     {
         unset($this->boardingCard);
@@ -40,4 +47,6 @@ class RailwayBoardingCardTest  extends AbstractBoardingCardTest {
 
 
 
-} 
+}
+
+//</code>

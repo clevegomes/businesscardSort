@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Developer1
- * Date: 29/11/2015
- * Time: 11:42 AM
  */
 
 namespace Cls;
@@ -112,7 +110,15 @@ Abstract class  tripAbstract implements tripInterface{
 	abstract public function getCardDetails();
 
 
-	/**
+    /**
+     * Methods need to be defined in the different card classes
+     */
+    abstract public function getShortCardDetails();
+
+
+
+
+    /**
 	 * @param string $location  Name of the Arrival location (city)
 	 * @param string $lg    Code of the language the location is in
 	 * @return int     1 Invalid Language, 2 Invalid City , 0 Valid language and city
@@ -204,3 +210,5 @@ Abstract class  tripAbstract implements tripInterface{
 		return $this->departureLocationId;
 	}
 }
+
+//</code>

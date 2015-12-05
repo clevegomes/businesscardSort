@@ -3,16 +3,18 @@
 /**
  * Created by PhpStorm.
  * User: Developer1
- * Date: 29/11/2015
- * Time: 3:52 PM
+
  */
 
 namespace  Test;
 use  Cls\BusBoardingCard;
-use Tst\AbstractBoardingCardTest;
 
-//require_once "init.php";
-
+/**
+ * This class is responsible in testing the BusBoardingCard class
+ * It extends AbstractBoardingCardTest
+ * Class BusBoardingCardTest
+ * @package Test
+ */
 class BusBoardingCardTest  extends AbstractBoardingCardTest
 
 {
@@ -46,3 +48,5 @@ class BusBoardingCardTest  extends AbstractBoardingCardTest
 
 
 }
+
+//</code>

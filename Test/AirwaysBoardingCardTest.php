@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Developer1
- * Date: 29/11/2015
- * Time: 6:02 PM
  */
 
 namespace  Test;
@@ -12,10 +10,13 @@ namespace  Test;
 
 
 use   Cls\AirwaysBoardingCard;
-use Tst\AbstractBoardingCardTest;
 
-//require_once "init.php";
-
+/**
+ * This class is responsible in testing the AirwaysBoardingCard Class
+ * It extends AbstractBoardingCardTest
+ * Class AirwaysBoardingCardTest
+ * @package Test
+ */
 class AirwaysBoardingCardTest  extends AbstractBoardingCardTest {
 
 
@@ -55,3 +56,5 @@ class AirwaysBoardingCardTest  extends AbstractBoardingCardTest {
 
 
 }
+
+//</code>

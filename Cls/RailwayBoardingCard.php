@@ -2,8 +2,6 @@
 /**
  * Created by PhpStorm.
  * User: Cleve
- * Date: 12/3/15
- * Time: 12:23 AM
  */
 
 namespace Cls;
@@ -121,4 +119,16 @@ class RailwayBoardingCard extends tripAbstract {
     }
 
 
-} 
+    /**
+     * @return string  Returns the card details in few lines
+     */
+    public function getShortCardDetails()
+    {
+        $this->boardingCardDetails= $this->details."\n";
+        return $this->boardingCardDetails;
+    }
+
+
+}
+
+//</code>

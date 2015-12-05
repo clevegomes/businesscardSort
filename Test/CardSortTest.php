@@ -2,11 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: Developer1
- * Date: 30/11/2015
- * Time: 12:41 PM
  */
 
-namespace  Tst;
+namespace  Test;
 
 
 use  Cls\AirwaysBoardingCard;
@@ -14,17 +12,21 @@ use  Cls\BusBoardingCard;
 use  Cls\CardSort;
 use Cls\tripAbstract;
 
-//require_once "init.php";
 
 /**
+ * This class is responsible in testing the CardSort Class
  * Class CardSortTest
- * @package Tst
+ * @package Test
  */
 class CardSortTest extends \PHPUnit_Framework_TestCase{
 
 
 	private $unsortedCards =[];
 
+
+    /**
+     * Creating the boarding card list before the test can run
+     */
     function setUp()
     {
         $airwaysBoardingCard =  new AirwaysBoardingCard();
@@ -43,6 +45,9 @@ class CardSortTest extends \PHPUnit_Framework_TestCase{
     }
 
 
+    /**
+     * Cleaning up the boarding card list after the test is finished
+     */
     function  tearDown()
     {
         unset($this->unsortedCards);
@@ -81,3 +86,5 @@ class CardSortTest extends \PHPUnit_Framework_TestCase{
 
 	}
 }
+
+//</code>
